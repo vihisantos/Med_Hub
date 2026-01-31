@@ -4,9 +4,10 @@ import { useAuth } from '../context/AuthContext';
 import { useToast } from '../context/ToastContext';
 import { api } from '../utils/api';
 import {
-    Search, MapPin, Calendar, Clock, CheckCircle, XCircle,
-    Clock3, Stethoscope, Building2, Briefcase, Filter, ArrowRight, LogOut,
-    User as UserIcon, FileText, MessageCircle, MoreVertical
+    Search, MapPin, CheckCircle, XCircle,
+    LogOut, Briefcase,
+    User as UserIcon, FileText, MessageCircle, MoreVertical,
+    Clock3, Stethoscope, Building2, Filter
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';

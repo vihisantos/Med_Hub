@@ -2,7 +2,6 @@ import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import DashboardDoctor from '../DashboardDoctor';
-import { AuthProvider } from '../../context/AuthContext';
 import { ToastProvider } from '../../context/ToastContext';
 
 // Mock API

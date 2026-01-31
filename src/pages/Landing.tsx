@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowRight, Activity, Shield, Users, LayoutDashboard, CheckCircle2, Star } from 'lucide-react';
+import { ArrowRight, Activity, Shield, Users, LayoutDashboard } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
