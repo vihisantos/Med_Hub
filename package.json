@@ -3,13 +3,16 @@
     "version": "1.0.0",
     "description": "",
     "main": "server/index.ts",
+    "homepage": "https://vihisantos.github.io/Med_Hub",
     "scripts": {
         "dev": "concurrently \"npm run server\" \"vite\"",
         "server": "nodemon --ext ts --exec ts-node server/index.ts",
         "build": "tsc && vite build",
         "preview": "vite preview",
         "lint": "eslint .",
-        "test": "vitest"
+        "test": "vitest",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d dist"
     },
     "keywords": [],
     "author": "",
@@ -44,6 +47,7 @@
         "@vitejs/plugin-react": "^5.1.2",
         "autoprefixer": "^10.4.16",
         "concurrently": "^8.2.2",
+        "gh-pages": "^6.3.0",
         "jsdom": "^27.4.0",
         "nodemon": "^3.0.1",
         "postcss": "^8.4.31",
