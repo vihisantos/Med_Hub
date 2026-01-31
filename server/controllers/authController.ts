@@ -1,0 +1,86 @@
+import type { Request, Response } from 'express';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+
+import { query } from '../db.ts';
+
+const JWT_SECRET = process.env.JWT_SECRET || 'secret_key';
+
+export const register = async (req: Request, res: Response) => {
+    const {
+        name, email, password, role,
+        registration, specialty, location, phone,
+        bio, specialties, experiences
+    } = req.body;
+
+    try {
+        // Check if user exists
+        const userCheck = await query('SELECT * FROM users WHERE email = $1', [email]);
+        if (userCheck.rows.length > 0) {
+            return res.status(400).json({ message: 'Email already exists' });
+        }
+
+        // Hash password
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        // Standardize JSON fields
+        const specialtiesJson = Array.isArray(specialties) ? JSON.stringify(specialties) : (specialties || JSON.stringify([]));
+        const experiencesJson = Array.isArray(experiences) ? JSON.stringify(experiences) : (experiences || JSON.stringify([]));
+
+        // Create user
+        const newUser = await query(
+            `INSERT INTO users (
+                name, email, password, role, registration, 
+                specialty, location, phone, bio, specialties, experiences
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) 
+            RETURNING id, name, email, role`,
+            [
+                name,
+                email,
+                hashedPassword,
+                role,
+                registration || null,
+                specialty || null,
+                location || null,
+                phone || null,
+                bio || null,
+                specialtiesJson,
+                experiencesJson
+            ]
+        );
+
+        const token = jwt.sign({ id: newUser.rows[0].id, role: newUser.rows[0].role }, JWT_SECRET, { expiresIn: '1d' });
+
+        res.status(201).json({ token, user: newUser.rows[0] });
+    } catch (err) {
+        console.error('Registration Error:', err);
+        res.status(500).json({ message: 'Server error during registration' });
+    }
+};
+
+export const login = async (req: Request, res: Response) => {
+    const { email, password } = req.body;
+
+    try {
+        // Check user (using normalized 'password' column)
+        const user = await query('SELECT *, is_verified, subscription_tier FROM users WHERE email = $1', [email]);
+        if (user.rows.length === 0) {
+            return res.status(400).json({ message: 'Invalid credentials' });
+        }
+
+        // Check password (using normalized 'password' column)
+        const validPassword = await bcrypt.compare(password, user.rows[0].password);
+        if (!validPassword) {
+            return res.status(400).json({ message: 'Invalid credentials' });
+        }
+
+        const token = jwt.sign({ id: user.rows[0].id, role: user.rows[0].role }, JWT_SECRET, { expiresIn: '1d' });
+
+        const { password: _, ...userData } = user.rows[0];
+        res.json({ token, user: userData });
+    } catch (err) {
+        console.error('Login Error:', err);
+        res.status(500).json({ message: 'Server error during login' });
+    }
+};

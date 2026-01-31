@@ -1,0 +1,253 @@
+.profile-doctor {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    color: #1c1c1c;
+}
+
+.profile-doctor__nav {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn-tab {
+    border: none;
+    background: #ddd;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.btn-tab.active,
+.btn-tab:hover {
+    background: #4a90e2;
+    color: white;
+}
+
+.btn-logout {
+    margin-left: auto;
+    background: transparent;
+    border: 2px solid #e74c3c;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    color: #e74c3c;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-logout:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.profile-doctor__header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.profile-doctor__avatar {
+    border-radius: 50%;
+    border: 3px solid #4a90e2;
+    object-fit: cover;
+}
+
+.profile-doctor__header-info {
+    flex: 1;
+    min-width: 240px;
+}
+
+.profile-doctor__name {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.profile-doctor__crm {
+    margin-top: 4px;
+    color: #555;
+    font-weight: 600;
+}
+
+.profile-doctor__location {
+    margin-top: 4px;
+    color: #555;
+    font-style: italic;
+}
+
+.profile-doctor__bio {
+    margin-top: 1rem;
+    line-height: 1.4;
+    color: #333;
+}
+
+.profile-doctor__specialties,
+.profile-doctor__experiences {
+    margin-bottom: 2rem;
+}
+
+.profile-doctor__specialty-list,
+.profile-doctor__experience-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1rem;
+}
+
+.profile-doctor__specialty-item {
+    background: #4a90e2;
+    padding: 0.4rem 0.8rem;
+    border-radius: 1rem;
+    color: white;
+    display: inline-block;
+    margin: 0 0.5rem 0.5rem 0;
+    font-size: 0.875rem;
+}
+
+.profile-doctor__experience-item {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.4rem;
+    position: relative;
+}
+
+.btn-remove-specialty,
+.btn-remove-exp {
+    background: transparent;
+    border: none;
+    font-weight: 900;
+    color: #e74c3c;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: color 0.3s;
+}
+
+.btn-remove-specialty:hover,
+.btn-remove-exp:hover {
+    color: #c0392b;
+}
+
+.profile-doctor__form fieldset {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.profile-doctor__form label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.profile-doctor__form input,
+.profile-doctor__form textarea {
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    margin-top: 0.2rem;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.profile-doctor__form input:focus,
+.profile-doctor__form textarea:focus {
+    outline: 3px solid #4a90e2;
+    border-color: #4a90e2;
+}
+
+.specialties-input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.specialties-input-group input {
+    flex: 1;
+}
+
+.experience-add input,
+.experience-add textarea {
+    margin-bottom: 0.5rem;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.experience-add button {
+    padding: 0.5rem 1rem;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.experience-add button:hover {
+    background-color: #357abd;
+}
+
+.profile-doctor__form button[type='submit'] {
+    padding: 0.75rem 1.2rem;
+    background-color: #2ecc71;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    margin-right: 1rem;
+    transition: background-color 0.3s;
+}
+
+.profile-doctor__form button[type='submit']:disabled {
+    background-color: #a5d6a7;
+    cursor: not-allowed;
+}
+
+.profile-doctor__form button[type='submit']:hover:not(:disabled) {
+    background-color: #27ae60;
+}
+
+.profile-doctor__form button[type='button'] {
+    padding: 0.75rem 1.2rem;
+    border: 2px solid #e74c3c;
+    background: transparent;
+    border-radius: 6px;
+    color: #e74c3c;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.profile-doctor__form button[type='button']:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .profile-doctor__header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-doctor__header-info {
+        text-align: center;
+    }
+}
