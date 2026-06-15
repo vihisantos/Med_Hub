@@ -1,84 +1,127 @@
-# Med Hub 🏥
+# Med Hub
 
-> **The Operating System for Medical Shift Management**  
-> _Connecting world-class hospitals with top-tier professionals._
+<p align="center">
+  <strong>The Operating System for Medical Shift Management</strong>
+  <br>
+  Conectando hospitais de alto padrao com profissionais de saude de elite.
+</p>
 
-![Med Hub Prototype](https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2070&h=800)
-*(Prototype Image - Interface uses Glassmorphism & Premium UI)*
-
-## 🚧 Project Status: **Prototype / MVP**
-
-This project is a **High-Fidelity Prototype** designed to demonstrate the user experience and interface capabilities of the Med Hub platform. 
-
-**Current Version:** 1.0.0 (Concept)  
-**Live Demo:** [View on GitHub Pages](https://vihisantos.github.io/Med_Hub/)
-
----
-
-## ✨ Key Features
-
-### 🏢 For Hospitals
-- **Shift Management**: Create and manage shift opportunities efficiently.
-- **Candidate Selection**: Artificial Intelligence matching for the best professionals.
-- **Real-time Dashboard**: Track metrics, coverage, and financial stats.
-
-### 👩‍⚕️ For Professionals (Doctors/Nurses)
-- **One-Click Apply**: Seamless application process for open shifts.
-- **Smart Filters**: Find opportunities by specialty, location, or hourly rate.
-- **Financial Control**: Track your earnings and schedule in one place.
+<p align="center">
+  <img src="https://img.shields.io/badge/React%2018-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 18">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite">
+  <img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
+  <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express">
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
+</p>
 
 ---
 
-## 🛠️ Technology Stack
+## Sobre
 
-Built with a focus on performance, aesthetics, and developer experience.
+**Med Hub** e uma plataforma premium de gerenciamento de plantoes medicos. Conecta hospitais a medicos e enfermeiros qualificados, oferecendo dashboards em tempo real, sistema de candidatura inteligente, chat integrado e gestao financeira.
 
-- **Frontend**: 
-  - [React 18](https://react.dev/) + [Vite](https://vitejs.dev/) - Blazing fast UI.
-  - [TailwindCSS](https://tailwindcss.com/) - Utility-first styling.
-  - [Framer Motion](https://www.framer.com/motion/) - Smooth, complex animations.
-  - [Lucide React](https://lucide.dev/) - Beautiful, consistent icons.
-  
-- **Backend (API)**:
-  - Node.js + Express
-  - PostgreSQL (Structure ready)
-  - JWT Authentication
+Projeto em estagio de prototipo de alta fidelidade com MVP funcional.
 
 ---
 
-## 🚀 Getting Started
+## Tech Stack
 
-To run this project locally:
+### Frontend
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/vihisantos/Med_Hub.git
-   ```
+| Tecnologia | Proposito |
+|---|---|
+| **React 18** | Biblioteca de interface |
+| **TypeScript** | Tipagem estatica |
+| **Vite 5** | Build tool e dev server |
+| **Tailwind CSS 3** | Estilizacao utilitaria |
+| **Framer Motion** | Animacoes e transicoes |
+| **Lucide React** | Iconografia |
+| **React Router 6** | Roteamento SPA |
+| **Vitest + Testing Library** | Testes unitarios |
 
-2. **Install dependencies**
-   ```bash
-   cd Med_Hub
-   npm install
-   ```
+### Backend
 
-3. **Run Development Server**
-   ```bash
-   npm run dev
-   ```
-   Access at `http://localhost:5173`
+| Tecnologia | Proposito |
+|---|---|
+| **Node.js + Express 4** | Servidor HTTP |
+| **TypeScript** | Tipagem estatica |
+| **PostgreSQL** | Banco de dados relacional |
+| **JWT (jsonwebtoken)** | Autenticacao via tokens |
+| **bcryptjs** | Hashing de senhas |
+| **multer** | Upload de arquivos |
+| **cors** | Cross-origin requests |
+| **dotenv** | Variaveis de ambiente |
 
-4. **Production Build**
-   ```bash
-   npm run build
-   ```
+### Infraestrutura & Ferramentas
+
+| Tecnologia | Proposito |
+|---|---|
+| **GitHub Pages** | Deploy estatico |
+| **concurrently** | Dev server em paralelo |
+| **nodemon** | Hot reload do backend |
+| **gh-pages** | Deploy automatizado |
 
 ---
 
-## 🛡️ Security & Privacy
+## Funcionalidades Principais
 
-- **Auth**: Secure JWT implementation (Simulated in Demo Mode).
-- **Standards**: Designed with LGPD/GDPR compliance in mind.
+- **Dashboard Hospital** — Gerenciamento de vagas, selecao de candidatos, metricas em tempo real
+- **Dashboard Profissional** — Candidatura com um clique, filtros por especialidade/local/taxa
+- **Multi-role** — Suporte a Medicos e Enfermeiros com cadastro especifico (CRM/COREN)
+- **Chat Integrado** — Mensagens diretas entre hospitais e profissionais
+- **Perfil e Documentos** — Upload de foto, holerites, gestao de documentos
+- **Sistema de Verificacao** — Badge verified e planos premium
+- **Painel Admin** — Visao unificada com toggle entre hospital e profissional
+- **Notificacoes** — Sistema de toasts customizado
+- **Papeis Institucionais** — Termos de Uso, Privacidade, LGPD, Compliance
+- **Banner de Cookies** — Consentimento com LGPD
 
 ---
 
-Made with 💚 by **Vitor Santos**.
+## Estrutura do Projeto
+
+```
+med-hub-web/
+  src/                     Frontend React SPA
+    components/            Componentes reutilizaveis
+    pages/                 Paginas e rotas
+    context/               Contextos React
+    types/                 Tipos TypeScript
+    utils/                 Utilitarios
+    App.tsx                Entry point + rotas
+    main.tsx               Renderizacao
+  server/                  Backend API Express
+    controllers/           Logica dos endpoints
+    routes/                Definicao de rotas
+    middleware/            Middlewares (auth, upload)
+    db.ts                  Configuracao PostgreSQL
+    initDb.ts              Script de inicializacao do banco
+    schema.sql             Schema do banco de dados
+    seedAdmin.ts           Seed de admin
+  dist/                    Build de producao
+  public/                  Assets estaticos
+```
+
+---
+
+## Arquitetura
+
+```
+[Cliente React SPA] ---- fetch /api/* ---- [Servidor Express]
+       |                                          |
+       | React Router 6                    JWT Auth Middleware
+       | Framer Motion                     Controllers + Routes
+       | Tailwind + Lucide                 PostgreSQL
+       v                                          v
+[GitHub Pages Deploy]                   [Banco de Dados]
+```
+
+---
+
+<p align="center">
+  <br>
+  <sub>Desenvolvido por <a href="https://capybaraholding.com.br" target="_blank"><strong>Capybara Holding</strong></a></sub>
+  <br>
+  <sub>&copy; 2026 Med Hub. Todos os direitos reservados.</sub>
+</p>
